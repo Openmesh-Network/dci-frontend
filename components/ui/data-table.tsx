@@ -8,7 +8,6 @@ import {
   useReactTable,
 } from "@tanstack/react-table"
 
-import { Button } from "@/components/ui/button"
 import {
   Table,
   TableBody,

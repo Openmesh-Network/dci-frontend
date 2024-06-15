@@ -22,7 +22,7 @@ export default function IndexPage() {
             height={50}
           />
           <div className="pt-6" />
-          <h1 className="text-6xl text-secondary">
+          <h1 className="text-4xl text-secondary md:text-6xl whitespace-break-spaces">
             Decentralized Cloud <br className="hidden sm:inline" />
             Initiative (DCI) 2024
           </h1>
@@ -97,7 +97,7 @@ export default function IndexPage() {
           />
         </div>
         <Title>Openmesh achievements</Title>
-        <div className="flex w-full flex-wrap items-center pt-5">
+        <div className="flex w-full flex-wrap items-center pt-5 gap-5 md:gap-x-16">
           <Achievement
             title="170+"
             description="Free Lessons, Active Projects"
@@ -132,7 +132,7 @@ export default function IndexPage() {
           />
         </div>
         <Title>Openmesh partners</Title>
-        <div className="flex w-full flex-wrap items-center pt-5">
+        <div className="flex w-full flex-wrap items-center pt-5 gap-x-10 gap-y-5 md:gap-x-28">
           <Partner src={OpenmeshLogo} />
           <Partner src={OpenmeshLogo} />
           <Partner src={OpenmeshLogo} />
@@ -173,7 +173,7 @@ export default function IndexPage() {
         <Title>Mechanics</Title>
         <Image alt="Mechanics" src={Mechanics} />
         <Title>Tickets</Title>
-        <Tickets />
+        {/* <Tickets /> */}
       </section>
     </>
   )
@@ -214,7 +214,7 @@ function Achievement({
   description: string
 }) {
   return (
-    <div className="flex grow flex-col items-center p-5 md:px-10">
+    <div className="flex grow flex-col items-center">
       <span className="text-5xl font-semibold">{title}</span>
       <Text>{description}</Text>
     </div>
@@ -223,7 +223,7 @@ function Achievement({
 
 function Partner({ src }: { src: any }) {
   return (
-    <div className="flex grow flex-col items-center px-10 py-5 md:px-16">
+    <div className="flex grow flex-col items-center">
       <Image alt="Organization logo" src={src} height={60} />
     </div>
   )
