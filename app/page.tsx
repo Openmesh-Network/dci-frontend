@@ -23,7 +23,7 @@ export default function IndexPage() {
             height={50}
           />
           <div className="pt-6" />
-          <h1 className="text-4xl text-secondary md:text-6xl whitespace-break-spaces">
+          <h1 className="whitespace-break-spaces text-4xl text-secondary md:text-6xl">
             Decentralized Cloud <br className="hidden sm:inline" />
             Initiative (DCI) 2024
           </h1>
@@ -98,7 +98,7 @@ export default function IndexPage() {
           />
         </div>
         <Title>Openmesh achievements</Title>
-        <div className="flex w-full flex-wrap items-center pt-5 gap-5 md:gap-x-16">
+        <div className="flex w-full flex-wrap items-center gap-5 pt-5 md:gap-x-16">
           <Achievement
             title="170+"
             description="Free Lessons, Active Projects"
@@ -133,7 +133,7 @@ export default function IndexPage() {
           />
         </div>
         <Title>Openmesh partners</Title>
-        <div className="flex w-full flex-wrap items-center pt-5 gap-x-10 gap-y-5 md:gap-x-28">
+        <div className="flex w-full flex-wrap items-center gap-x-10 gap-y-5 pt-5 md:gap-x-28">
           <Partner src={OpenmeshLogo} />
           <Partner src={OpenmeshLogo} />
           <Partner src={OpenmeshLogo} />
