@@ -7,9 +7,8 @@ import { formatUnits, Hex, parseUnits } from "viem"
 import { useAccount } from "wagmi"
 
 import { Button } from "@/components/ui/button"
+import { DataTable } from "@/components/ui/data-table"
 import { defaultChain } from "@/components/custom/web3-provider"
-
-import { DataTable } from "../ui/data-table"
 
 export interface Ticket {
   provider: string
