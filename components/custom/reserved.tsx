@@ -74,11 +74,11 @@ export default function Reserved() {
   return (
     <div className="flex flex-col gap-3">
       <span>
-        Reserved: {reservedAmountByAddress.toString()} (
+        Reserved: {reservedAmountByAddress.toString()} USD (
         {reservedTokensByAddress} sOPEN)
       </span>
       <span>
-        Waitlisted: {waitlistedAmountByAddress.toString()} (
+        Waitlisted: {waitlistedAmountByAddress.toString()} USD (
         {waitlistedTokensByAddress} sOPEN)
       </span>
     </div>
