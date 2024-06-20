@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { DCIReserveContract } from "@/dci-indexer/contracts/DCIReserve"
 import { useWeb3Modal } from "@web3modal/wagmi/react"
-import { useAccount } from "wagmi"
+import { useAccount, useReadContract } from "wagmi"
 
 import { usePerformTransaction } from "@/hooks/usePerformTransaction"
 import { Button } from "@/components/ui/button"
@@ -32,8 +32,21 @@ export default function Reserve() {
     ticketSizes[0]
   )
 
+  const { data: available, refetch: refetchAvailable } = useReadContract({
+    abi: DCIReserveContract.abi,
+    address: DCIReserveContract.address,
+    functionName: "available",
+    chainId: defaultChain.id,
+  })
+
   return (
     <div className="flex flex-col gap-3">
+      {available !== undefined && (
+        <span>
+          {available.toString()} USD available for guaranteed allocation. Any
+          surplus will be put onto the waitlist.
+        </span>
+      )}
       <Select
         onValueChange={(e) => setChosenTicketSize(Number(e))}
         value={chosenTicketSize.toString()}
@@ -71,18 +84,18 @@ export default function Reserve() {
               }
             },
             onConfirmed: (receipt) => {
-              // refresh()
+              refetchAvailable()
             },
           })
         }}
         disabled={performingTransaction}
       >
-        Reserve
+        {available === BigInt(0) ? "Reserve Waitlist" : "Reserve"}
       </Button>
     </div>
   )
 }
 
-function tokensForTicketSize(ticketSize: number) {
+export function tokensForTicketSize(ticketSize: number) {
   return Math.round(ticketSize * 1.1)
 }

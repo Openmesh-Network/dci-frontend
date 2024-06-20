@@ -3,7 +3,7 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import { createWeb3Modal } from "@web3modal/wagmi/react"
 import { defaultWagmiConfig } from "@web3modal/wagmi/react/config"
-import { cookieStorage, createStorage, WagmiProvider } from "wagmi"
+import { cookieStorage, createStorage, http, WagmiProvider } from "wagmi"
 import { sepolia } from "wagmi/chains"
 
 import { siteConfig } from "@/config/site"
@@ -31,6 +31,9 @@ const config = defaultWagmiConfig({
   storage: createStorage({
     storage: cookieStorage,
   }),
+  transports: {
+    [sepolia.id]: http("https://rpc2.sepolia.org"),
+  },
   auth: {
     email: false,
   },

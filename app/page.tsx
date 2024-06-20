@@ -5,8 +5,8 @@ import OpenmeshLogo from "@/public/logo.svg"
 import Mechanics from "@/public/mechanics.png"
 import OpenmeshFull from "@/public/OpenmeshFull.svg"
 
-import Metadata from "@/components/custom/metadata"
 import Reserve from "@/components/custom/reserve"
+import Reserved from "@/components/custom/reserved"
 import Timeline from "@/components/custom/timeline"
 
 export default function IndexPage() {
@@ -175,8 +175,8 @@ export default function IndexPage() {
         <Image alt="Mechanics" src={Mechanics} />
         <Title>Reserve</Title>
         <Reserve />
-        <Title>Get notified</Title>
-        <Metadata />
+        <Title>Reserved</Title>
+        <Reserved />
       </section>
     </>
   )
