@@ -19,7 +19,7 @@ export default function Reserved() {
         .then((res) => res.data)
         .then((res) => JSON.parse(JSON.stringify(res), reviver) as Reserved[])
     },
-    staleTime: 5 * 1000,
+    refetchInterval: 5 * 1000,
   })
 
   const { data: waitlisted } = useQuery({
@@ -30,7 +30,7 @@ export default function Reserved() {
         .then((res) => res.data)
         .then((res) => JSON.parse(JSON.stringify(res), reviver) as Waitlisted[])
     },
-    staleTime: 5 * 1000,
+    refetchInterval: 5 * 1000,
   })
   console.log(reserved)
   console.log(waitlisted)

@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { DCIReserveContract } from "@/dci-indexer/contracts/DCIReserve"
+import { useQuery, useQueryClient } from "@tanstack/react-query"
 import { useWeb3Modal } from "@web3modal/wagmi/react"
 import { useAccount, useReadContract } from "wagmi"
 
@@ -24,6 +25,7 @@ export default function Reserve() {
   const { performTransaction, performingTransaction } = usePerformTransaction({
     chainId: defaultChain.id,
   })
+  const queryClient = useQueryClient()
 
   const ticketSizes = [
     50_000, 100_000, 150_000, 200_000, 250_000, 350_000, 500_000,
@@ -85,6 +87,8 @@ export default function Reserve() {
             },
             onConfirmed: (receipt) => {
               refetchAvailable()
+              queryClient.invalidateQueries({ queryKey: ["reserved"] })
+              queryClient.invalidateQueries({ queryKey: ["waitlisted"] })
             },
           })
         }}
