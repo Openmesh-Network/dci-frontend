@@ -1,38 +1,40 @@
 "use client"
 
+import Link from "next/link"
+
 export default function Timeline() {
   const items = [
     {
-      date: "June 20th",
-      description: "Whitelisting all participants",
+      date: "June 10-11",
+      description: "Proof of Talk",
+      href: "https://www.proofoftalk.io/",
     },
     {
-      date: "June 20th",
-      description: "Whitelisting all participants",
+      date: "July 12-14",
+      description: "EthGlobal Brussels",
+      href: "https://ethglobal.com/events/brussels",
     },
     {
-      date: "June 20th",
-      description: "Whitelisting all participants",
+      date: "September 18-19",
+      description: "Token2049",
+      href: "https://www.asia.token2049.com/",
     },
     {
-      date: "June 20th",
-      description: "Whitelisting all participants",
+      date: "October 30-31",
+      description: "SmartCon",
+      href: "https://smartcon.chain.link/home",
     },
     {
-      date: "June 20th",
-      description: "Whitelisting all participants",
-    },
-    {
-      date: "June 20th",
-      description: "Whitelisting all participants",
+      date: "November 2024",
+      description: "ODI Hack NYC",
     },
   ]
 
   return (
     <div>
-      <ol className="items-center justify-center md:flex">
+      <ol className="items-center justify-center md:flex w-full">
         {items.map((item, i) => (
-          <li key={i} className="relative mb-6 md:mb-0">
+          <li key={i} className="relative mb-6 md:mb-0 grow">
             <div className="flex items-center">
               <div className="z-10 flex size-6 shrink-0 items-center justify-center rounded-full bg-blue-100 ring-0 ring-white dark:bg-blue-900 dark:ring-gray-900 md:ring-8">
                 <svg
@@ -52,7 +54,13 @@ export default function Timeline() {
                 {item.date}
               </h3>
               <p className="text-base font-normal text-gray-500 dark:text-gray-400">
-                {item.description}
+                {item.href ? (
+                  <Link href={item.href} target="_blank">
+                    {item.description}
+                  </Link>
+                ) : (
+                  item.description
+                )}
               </p>
             </div>
           </li>
