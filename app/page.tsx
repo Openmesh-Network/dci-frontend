@@ -5,6 +5,7 @@ import aiven from "@/public/aiven.svg"
 import chainlink from "@/public/chainlink.svg"
 import equinix from "@/public/equinix.svg"
 import fantom from "@/public/fantom.png"
+import hivelocityFull from "@/public/hivelocity-full.svg"
 import hivelocity from "@/public/hivelocity.svg"
 import OpenmeshLogo from "@/public/logo.svg"
 import Mechanics from "@/public/mechanics.png"
@@ -251,7 +252,7 @@ export default function IndexPage() {
           <Partner src={vultr} />
           <Partner src={singularitynet} />
           <Partner src={aiven} />
-          <Partner src={hivelocity} />
+          <Partner src={hivelocityFull} />
         </div>
         <Title>Important links</Title>
         <Text>
