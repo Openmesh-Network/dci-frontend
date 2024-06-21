@@ -27,10 +27,11 @@ export default function IndexPage() {
         <div className="ml-12 flex w-full flex-col items-start gap-2">
           <div className="pt-6" />
           <Image
+            className="h-[50px] w-[225px] md:h-[66px] md:w-[300px]"
             alt="Openmesh logo"
             src={OpenmeshFull}
+            height={66}
             width={300}
-            height={50}
           />
           <div className="pt-6" />
           <h1 className="whitespace-break-spaces text-4xl text-secondary md:text-6xl">
