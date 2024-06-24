@@ -129,7 +129,7 @@ export default function Reserve() {
             <AlertDialogDescription>
               <div className="flex flex-col gap-y-2">
                 <ScrollArea className="h-96">
-                  <div className="flex flex-col gap-y-3 text-left">
+                  <div className="flex flex-col gap-y-3 text-left pr-3 md:pr-4">
                     <Disclaimer />
                   </div>
                 </ScrollArea>
