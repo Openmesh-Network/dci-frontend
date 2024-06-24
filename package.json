@@ -14,7 +14,10 @@
   },
   "dependencies": {
     "@plopmenz/viem-extensions": "^2.14.0",
+    "@radix-ui/react-alert-dialog": "^1.1.1",
+    "@radix-ui/react-checkbox": "^1.1.0",
     "@radix-ui/react-icons": "^1.3.0",
+    "@radix-ui/react-scroll-area": "^1.1.0",
     "@radix-ui/react-select": "^2.0.0",
     "@radix-ui/react-toast": "^1.1.5",
     "@tanstack/react-query": "^5.45.1",

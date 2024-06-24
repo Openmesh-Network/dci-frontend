@@ -1,6 +1,5 @@
 import React from "react"
 import Image from "next/image"
-import NextLink from "next/link"
 import aiven from "@/public/aiven.svg"
 import chainlink from "@/public/chainlink.svg"
 import equinix from "@/public/equinix.svg"
@@ -15,6 +14,8 @@ import singularitynet from "@/public/singularitynet.svg"
 import snowflake from "@/public/snowflake.svg"
 import vultr from "@/public/vultr.svg"
 
+import { Link, ListItem, Subtitle, Text, Title } from "@/components/base"
+import Disclaimer from "@/components/custom/disclaimer"
 import Reserve from "@/components/custom/reserve"
 import Reserved from "@/components/custom/reserved"
 import Timeline from "@/components/custom/timeline"
@@ -84,83 +85,9 @@ export default function IndexPage() {
           ecosystem.
         </Text>
         <Subtitle>Disclaimer</Subtitle>
-        <Text>
-          This proposal is provided for informational purposes only and does not
-          constitute an offer or solicitation for investment or financial
-          advice. Participation in the Decentralized Cloud Initiative (DCI) 2024
-          as a sponsor involves significant risks. Sponsors should perform their
-          own due diligence and fully understand the associated risks before
-          committing any resources. This initiative is strictly a sponsorship
-          and not an investment.
-        </Text>
-        <Text>
-          <strong>Key Risks:</strong>
-          <br />
-          <ListItem>
-            <strong>Financial Risk:</strong> There is no guarantee of returns,
-            and sponsors may experience a total loss of their contribution.
-          </ListItem>
-          <ListItem>
-            <strong>Regulatory Risk:</strong> The legal status of decentralized
-            projects is uncertain and may vary by jurisdiction. Sponsors are
-            responsible for ensuring compliance with all applicable laws and
-            regulations.
-          </ListItem>
-          <ListItem>
-            <strong>Technical Risk:</strong> The initiative involves complex
-            technologies that may encounter unforeseen issues, leading to
-            potential operational failures.
-          </ListItem>
-        </Text>
-        <Text>
-          <strong>Nature of Participation:</strong> This initiative is a
-          sponsorship to support the development of decentralized cloud
-          infrastructure and the Web3 ecosystem. It is not an investment. By
-          sponsoring the DCI 2024, you are contributing to a community-driven
-          effort to democratize access to decentralized cloud resources and
-          support innovation in the Web3 space.
-        </Text>
-        <Text>
-          <strong>Sponsorship Details:</strong>
-          <br />
-          <ListItem>
-            <strong>Personal Capacity:</strong> You are acting in a personal
-            capacity and not as part of a registered entity. The DAO and its
-            members, including Openmesh, are not registered entities and operate
-            without formal legal recognition.
-          </ListItem>
-          <ListItem>
-            <strong>No Guarantees:</strong> Openmesh and the DAO make no
-            representations, warranties, or guarantees regarding the performance
-            or future value of the sOPEN tokens or any related assets.
-          </ListItem>
-          <ListItem>
-            <strong>Own Due Diligence:</strong> It is your responsibility to
-            conduct thorough due diligence and seek independent advice if
-            necessary. You should fully understand the risks involved before
-            participating.
-          </ListItem>
-          <ListItem>
-            <strong>Liability:</strong> Openmesh and the DAO are not responsible
-            for any financial loss, adverse outcomes, or legal implications
-            arising from your participation. All sponsorship activities are
-            undertaken at your own risk.
-          </ListItem>
-        </Text>
-        <Text>
-          <strong>Indemnification:</strong> By participating in this initiative,
-          you agree to indemnify, defend, and hold harmless the DAO, its
-          members, and Openmesh from any claims, losses, damages, liabilities,
-          penalties, actions, proceedings, judgments, or any other costs arising
-          out of or related to your participation in the initiative. This
-          includes, but is not limited to, any actions taken by end users of the
-          virtual machines.
-        </Text>
+        <Disclaimer />
         <Title>Basic steps</Title>
         <Text>
-          <ListItem>
-            Make sure the DCI main page is https://dci.openmesh.network
-          </ListItem>
           <ListItem>
             Select a ticket size and reserve the respective amount.
           </ListItem>
@@ -210,39 +137,26 @@ export default function IndexPage() {
           />
           <Stakeholder logo={hivelocity} description="Leading DePIN projects" />
         </div>
-        <Title>Openmesh achievements</Title>
+        <Title>New kind of global network</Title>
+        <Text>
+          The Openmesh Network is designed to collect, store, process, stream,
+          and provide data connectivity for anyone, anywhere, anytime.
+        </Text>
+        <Subtitle>
+          Decentralized IaaS, PaaS & SaaS, the possibilities are endless.
+        </Subtitle>
         <div className="flex w-full flex-wrap items-center gap-5 pt-5 md:gap-x-16">
           <Achievement
-            title="170+"
-            description="Free Lessons, Active Projects"
+            title="8x"
+            description="Compatibility: Easy integration and customization with other systems."
           />
           <Achievement
-            title="170+"
-            description="Free Lessons, Active Projects"
+            title="6x"
+            description="Cost Saving: Lowers overall expenses, no extra fees."
           />
           <Achievement
-            title="170+"
-            description="Free Lessons, Active Projects"
-          />
-          <Achievement
-            title="170+"
-            description="Free Lessons, Active Projects"
-          />
-          <Achievement
-            title="170+"
-            description="Free Lessons, Active Projects"
-          />
-          <Achievement
-            title="170+"
-            description="Free Lessons, Active Projects"
-          />
-          <Achievement
-            title="170+"
-            description="Free Lessons, Active Projects"
-          />
-          <Achievement
-            title="170+"
-            description="Free Lessons, Active Projects"
+            title="27x"
+            description="Speed for Build: Speeds up development and deployment."
           />
         </div>
         <Title>Openmesh partners</Title>
@@ -293,18 +207,6 @@ export default function IndexPage() {
   )
 }
 
-function Title({ children }: { children: any }) {
-  return <span className="pt-12 text-3xl font-bold">{children}</span>
-}
-
-function Subtitle({ children }: { children: any }) {
-  return <span className="pt-6 text-xl font-bold">{children}</span>
-}
-
-function Text({ children }: { children: any }) {
-  return <span>{children}</span>
-}
-
 function Stakeholder({
   logo,
   description,
@@ -328,7 +230,7 @@ function Achievement({
   description: string
 }) {
   return (
-    <div className="flex grow flex-col items-center">
+    <div className="flex grow flex-col items-start basis-96">
       <span className="text-5xl font-semibold">{title}</span>
       <Text>{description}</Text>
     </div>
@@ -340,22 +242,5 @@ function Partner({ src }: { src: any }) {
     <div className="flex grow flex-col items-center">
       <Image alt="Organization logo" src={src} height={60} />
     </div>
-  )
-}
-
-function Link({ href, children }: { href: string; children: any }) {
-  return (
-    <NextLink className="text-blue-500" href={href} target="_blank">
-      {children}
-    </NextLink>
-  )
-}
-
-function ListItem({ children }: { children: any }) {
-  return (
-    <>
-      <span>- {children}</span>
-      <br />
-    </>
   )
 }
