@@ -80,7 +80,8 @@ export default function Reserve() {
               <SelectLabel>Ticket size</SelectLabel>
               {ticketSizes.map((ticketSize, i) => (
                 <SelectItem key={i} value={ticketSize.toString()}>
-                  {ticketSize.toString()} USD
+                  {ticketSize.toString()} USD ({tokensForTicketSize(ticketSize)}{" "}
+                  sOPEN)
                 </SelectItem>
               ))}
             </SelectGroup>
@@ -168,5 +169,5 @@ export default function Reserve() {
 }
 
 export function tokensForTicketSize(ticketSize: number) {
-  return Math.round(ticketSize * (40 / 6))
+  return Math.round(ticketSize * (32.5 / 6.5))
 }
