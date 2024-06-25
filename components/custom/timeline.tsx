@@ -1,32 +1,16 @@
-"use client"
-
-import Link from "next/link"
-
 export default function Timeline() {
   const items = [
     {
-      date: "June 10-11",
-      description: "Proof of Talk",
-      href: "https://www.proofoftalk.io/",
+      date: "July 1st - 5th",
+      description: "Preparation Phase",
     },
     {
-      date: "July 12-14",
-      description: "EthGlobal Brussels",
-      href: "https://ethglobal.com/events/brussels",
+      date: "July 6th - 7th",
+      description: "Payment and Confirmation Phase",
     },
     {
-      date: "September 18-19",
-      description: "Token2049",
-      href: "https://www.asia.token2049.com/",
-    },
-    {
-      date: "October 30-31",
-      description: "SmartCon",
-      href: "https://smartcon.chain.link/home",
-    },
-    {
-      date: "November 2024",
-      description: "ODI Hack NYC",
+      date: "July 8th, 2024 - July 7th, 2025",
+      description: "Post-Participation and minting Phase",
     },
   ]
 
@@ -54,13 +38,7 @@ export default function Timeline() {
                 {item.date}
               </h3>
               <p className="text-base font-normal text-gray-500 dark:text-gray-400">
-                {item.href ? (
-                  <Link href={item.href} target="_blank">
-                    {item.description}
-                  </Link>
-                ) : (
-                  item.description
-                )}
+                {item.description}
               </p>
             </div>
           </li>

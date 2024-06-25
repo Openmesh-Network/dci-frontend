@@ -1,173 +1,227 @@
 "use client"
 
+import { useEffect, useState } from "react"
 import Link from "next/link"
+import { DCIReserveContract } from "@/dci-indexer/contracts/DCIReserve"
+import type { Reserved, Waitlisted } from "@/dci-indexer/types/reserve"
+import { reviver } from "@/dci-indexer/utils/json"
+import { useQuery, useQueryClient } from "@tanstack/react-query"
 import { ColumnDef } from "@tanstack/react-table"
 import { useWeb3Modal } from "@web3modal/wagmi/react"
-import { formatUnits, Hex, parseUnits } from "viem"
+import axios from "axios"
+import { Hex } from "viem"
 import { useAccount } from "wagmi"
 
+import { usePerformTransaction } from "@/hooks/usePerformTransaction"
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog"
 import { Button } from "@/components/ui/button"
+import { Checkbox } from "@/components/ui/checkbox"
 import { DataTable } from "@/components/ui/data-table"
+import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area"
+import Disclaimer from "@/components/custom/disclaimer"
 import { defaultChain } from "@/components/custom/web3-provider"
 
 export interface Ticket {
   provider: string
-  ticketId: Hex
-  ticketSize: bigint
-  ticketCurrency: {
-    symbol: string
-    decimals: number
-  }
-  tokensReward: bigint
+  ticketSize: number
+  ticketsReserved?: number
+  numberOfTickets: number
+  sOPEN: string
   bonus: string
+  action?: any
   tx?: Hex
+  className?: string
 }
 
 export default function Tickets() {
   const { isConnected } = useAccount()
   const { open } = useWeb3Modal()
+  const { performTransaction, performingTransaction } = usePerformTransaction({
+    chainId: defaultChain.id,
+  })
+  const queryClient = useQueryClient()
+  const { data: reserved } = useQuery({
+    queryKey: ["reserved"],
+    queryFn: () => {
+      return axios
+        .get("/indexer/reserved")
+        .then((res) => res.data)
+        .then((res) => JSON.parse(JSON.stringify(res), reviver) as Reserved[])
+    },
+    refetchInterval: 5 * 1000,
+  })
 
-  const tickets: Ticket[] = [
+  const [disclaimerAccepted, setDisclaimerAccepted] = useState<boolean>(false)
+  const [disclaimerOpen, setDisclaimerOpen] = useState<boolean>(false)
+
+  const [rawTickets, setRawTickets] = useState<Ticket[]>([
     {
-      provider: "Vultr",
-      ticketId:
-        "0x0a65181f0595e7bb22b17e8e6a11b87f51e80e9b8eecb7434a295af0e949f956",
-      ticketSize: parseUnits("50000", 6),
-      ticketCurrency: {
-        symbol: "USDC",
-        decimals: 6,
-      },
-      tokensReward: parseUnits("55000", 18),
-      bonus: "XX",
+      provider: "Hivelocity",
+      ticketSize: 50,
+      numberOfTickets: 10,
+      sOPEN: "TBD",
+      bonus: "TBD",
     },
     {
-      provider: "Vultr",
-      ticketId:
-        "0x0a65181f0595e7bb22b17e8e6a11b87f51e80e9b8eecb7434a295af0e949f956",
-      ticketSize: parseUnits("50000", 6),
-      ticketCurrency: {
-        symbol: "USDT",
-        decimals: 6,
-      },
-      tokensReward: parseUnits("55000", 18),
-      bonus: "XX",
+      provider: "Hivelocity",
+      ticketSize: 100,
+      numberOfTickets: 12,
+      sOPEN: "TBD",
+      bonus: "TBD",
     },
     {
-      provider: "Vultr",
-      ticketId:
-        "0x0a65181f0595e7bb22b17e8e6a11b87f51e80e9b8eecb7434a295af0e949f956",
-      ticketSize: parseUnits("50000", 6),
-      ticketCurrency: {
-        symbol: "USDC",
-        decimals: 6,
-      },
-      tokensReward: parseUnits("55000", 18),
-      bonus: "XX",
+      provider: "Hivelocity",
+      ticketSize: 250,
+      numberOfTickets: 10,
+      sOPEN: "TBD",
+      bonus: "TBD",
     },
     {
-      provider: "Vultr",
-      ticketId:
-        "0x0a65181f0595e7bb22b17e8e6a11b87f51e80e9b8eecb7434a295af0e949f956",
-      ticketSize: parseUnits("50000", 6),
-      ticketCurrency: {
-        symbol: "USDT",
-        decimals: 6,
-      },
-      tokensReward: parseUnits("55000", 18),
-      bonus: "XX",
+      provider: "Hivelocity",
+      ticketSize: 500,
+      numberOfTickets: 4,
+      sOPEN: "TBD",
+      bonus: "TBD",
     },
+  ])
+
+  useEffect(() => {
+    if (!reserved) {
+      return
+    }
+
+    const newTickets = rawTickets.map((ticket) => {
+      return {
+        ...ticket,
+        ticketsReserved: reserved.filter(
+          (r) => r.amount === BigInt(ticket.ticketSize * 1000)
+        ).length,
+        tx: reserved.findLast(
+          (r) => r.amount === BigInt(ticket.ticketSize * 1000)
+        )?.transactionHash,
+      }
+    })
+    setRawTickets(newTickets)
+  }, [reserved])
+
+  const tickets = rawTickets.concat([
     {
-      provider: "Vultr",
-      ticketId:
-        "0x0a65181f0595e7bb22b17e8e6a11b87f51e80e9b8eecb7434a295af0e949f956",
-      ticketSize: parseUnits("50000", 6),
-      ticketCurrency: {
-        symbol: "USDT",
-        decimals: 6,
-      },
-      tokensReward: parseUnits("55000", 18),
-      bonus: "XX",
-      tx: "0xdbd886e2dc2d17b31e1c132bb32536e3681d4433de96f4fa42bcf9547bac3d8d",
+      provider: "Total",
+      ticketSize: "-" as any,
+      ticketsReserved: rawTickets.reduce(
+        (prev, cur) => prev + (cur.ticketsReserved ?? 0),
+        0
+      ),
+      numberOfTickets: rawTickets.reduce(
+        (prev, cur) => prev + cur.numberOfTickets,
+        0
+      ),
+      sOPEN: "-",
+      bonus: "-",
+      action: <span className="font-bold">-</span>,
+      className: "font-bold",
     },
-  ]
+  ])
 
   const columns: ColumnDef<Ticket>[] = [
     {
-      accessorKey: "provider",
       header: "Provider",
+      cell: ({ row }) => (
+        <span className={row.original.className}>{row.original.provider}</span>
+      ),
     },
     {
-      accessorKey: "ticketId",
-      header: "Ticket ID",
-      cell: ({ row }) => {
-        const ticketId = row.original.ticketId
-        return `${ticketId.substring(0, 6)}...${ticketId.substring(ticketId.length - 4)}`
-      },
+      header: "Ticket Size (k)",
+      cell: ({ row }) => (
+        <span className={row.original.className}>
+          {row.original.ticketSize}
+        </span>
+      ),
     },
     {
-      accessorKey: "ticketSize",
-      header: "Ticket Size",
-      cell: ({ row }) => {
-        const ticketSize = row.original.ticketSize
-        const ticketCurrency = row.original.ticketCurrency
-        let color = "bg-gray-200"
-        switch (ticketCurrency.symbol) {
-          case "USDT":
-            color = "bg-green-200"
-            break
-          case "USDC":
-            color = "bg-blue-200"
-            break
-        }
-        return (
-          <span
-            className={`${color} rounded-md p-2`}
-          >{`${formatUnits(ticketSize, ticketCurrency.decimals)} ${ticketCurrency.symbol}`}</span>
-        )
-      },
+      header: "Number of Tickets",
+      cell: ({ row }) => (
+        <span className={row.original.className}>
+          {row.original.ticketsReserved !== undefined
+            ? row.original.numberOfTickets - row.original.ticketsReserved
+            : "?"}
+          /{row.original.numberOfTickets}
+        </span>
+      ),
     },
     {
-      accessorKey: "tokensReward",
       header: "sOPEN",
-      cell: ({ row }) => {
-        const tokensReward = row.original.tokensReward
-        return formatUnits(tokensReward, 18)
-      },
+      cell: ({ row }) => (
+        <span className={row.original.className}>{row.original.sOPEN}</span>
+      ),
     },
     {
-      accessorKey: "bonus",
       header: "Bonus",
+      cell: ({ row }) => (
+        <span className={row.original.className}>{row.original.bonus}</span>
+      ),
     },
     {
       header: "Actions",
       cell: ({ row }) => {
-        const ticketId = row.original.ticketId
-        const tx = row.original.tx
         return (
-          <Button
-            onClick={() => {
-              if (!isConnected) {
-                open()
-                return
-              }
+          row.original.action ?? (
+            <Button
+              onClick={() => {
+                if (!disclaimerAccepted) {
+                  setDisclaimerOpen(true)
+                  return
+                }
 
-              alert("There is no smart contract yet")
-            }}
-            className="bg-blue-600 hover:bg-blue-700"
-            disabled={tx !== undefined}
-          >
-            Whitelist
-          </Button>
+                if (!isConnected) {
+                  open()
+                  return
+                }
+
+                performTransaction({
+                  transaction: async () => {
+                    return {
+                      abi: DCIReserveContract.abi,
+                      address: DCIReserveContract.address,
+                      functionName: "reserve",
+                      args: [BigInt(row.original.ticketSize * 1000)],
+                    }
+                  },
+                  onConfirmed: (receipt) => {
+                    queryClient.invalidateQueries({ queryKey: ["reserved"] })
+                    queryClient.invalidateQueries({ queryKey: ["waitlisted"] })
+                  },
+                })
+              }}
+              className="bg-blue-600 hover:bg-blue-700"
+              disabled={
+                row.original.ticketsReserved === undefined ||
+                row.original.ticketsReserved >= row.original.numberOfTickets ||
+                performingTransaction
+              }
+            >
+              Whitelist
+            </Button>
+          )
         )
       },
     },
     {
-      accessorKey: "tx",
-      header: "Tx",
+      header: "tx",
       cell: ({ row }) => {
         const tx = row.original.tx
         if (!tx) {
-          return "-"
+          return <span className={row.original.className}>-</span>
         }
         return (
           <Link
@@ -180,5 +234,55 @@ export default function Tickets() {
     },
   ]
 
-  return <DataTable columns={columns} data={tickets} />
+  return (
+    <>
+      <ScrollArea className="w-full whitespace-nowrap rounded-md border">
+        <DataTable columns={columns} data={tickets} />
+        <ScrollBar orientation="horizontal" />
+      </ScrollArea>
+      <AlertDialog open={disclaimerOpen} onOpenChange={setDisclaimerOpen}>
+        <AlertDialogTrigger />
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Disclaimer</AlertDialogTitle>
+            <AlertDialogDescription>
+              <div className="flex flex-col gap-y-2">
+                <ScrollArea className="h-96">
+                  <div className="flex flex-col gap-y-3 text-left pr-3 md:pr-4">
+                    <Disclaimer />
+                  </div>
+                </ScrollArea>
+                <div className="items-top flex space-x-2">
+                  <Checkbox
+                    id="disclaimerAccepted"
+                    checked={disclaimerAccepted}
+                    onCheckedChange={(c) =>
+                      c !== "indeterminate" && setDisclaimerAccepted(c)
+                    }
+                  />
+                  <label
+                    htmlFor="disclaimerAccepted"
+                    className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                  >
+                    Accept
+                  </label>
+                </div>
+              </div>
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel onClick={() => setDisclaimerAccepted(false)}>
+              Cancel
+            </AlertDialogCancel>
+            <AlertDialogAction
+              onClick={() => setDisclaimerOpen(false)}
+              disabled={!disclaimerAccepted}
+            >
+              Continue
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
+    </>
+  )
 }

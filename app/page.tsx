@@ -16,8 +16,7 @@ import vultr from "@/public/vultr.svg"
 
 import { Link, ListItem, Subtitle, Text, Title } from "@/components/base"
 import Disclaimer from "@/components/custom/disclaimer"
-import Reserve from "@/components/custom/reserve"
-import Reserved from "@/components/custom/reserved"
+import Tickets from "@/components/custom/tickets"
 import Timeline from "@/components/custom/timeline"
 
 export default function IndexPage() {
@@ -43,6 +42,63 @@ export default function IndexPage() {
         </div>
         <Subtitle>Important dates</Subtitle>
         <Timeline />
+        <Subtitle>Preparation Phase: July 1st - 5th</Subtitle>
+        <Text>
+          <ListItem>
+            <strong>Visit the DCI Main Page:</strong> Go to
+            dci.openmesh.network.
+          </ListItem>
+          <ListItem>
+            <strong>Select Ticket Size and Whitelist:</strong> Choose the
+            available ticket size and sign the transaction to whitelist yourself
+            using the Ethereum network.
+          </ListItem>
+          <ListItem>
+            <strong>Supported ERC20 Assets:</strong> Only USDT, USDC, DAI, and
+            ETH are accepted for whitelisting. Payment is not made during this
+            step. You can only participate with the amount you have whitelisted.
+            You will receive sOPEN tokens in the same wallet used for
+            whitelisting.
+          </ListItem>
+          <ListItem>
+            <strong>Account Activation and KYC:</strong> Within 24-48 hours
+            after whitelisting, you will be guided to activate your account and
+            complete your KYC with the bare metal provider.
+          </ListItem>
+          <ListItem>
+            <strong>Sign Side Letter Agreement:</strong> Receive and sign the
+            side letter agreement with the bare metal provider, removing all
+            liability from your end.
+          </ListItem>
+        </Text>
+        <Subtitle>Payment and Confirmation Phase: July 6th - 7th</Subtitle>
+        <Text>
+          <ListItem>
+            <strong>
+              Receive Invoice and Choose Payment Method (July 6th):
+            </strong>{" "}
+            After completing the preparation steps, you will receive an invoice
+            from the bare metal provider. Inform the Openmesh team of your
+            preferred payment method (bank transfer, crypto transfer, or card).
+          </ListItem>
+          <ListItem>
+            <strong>Complete the Transaction (July 7th):</strong> Finalize your
+            transaction. Your transaction confirmation will be displayed on
+            dci.openmesh.network.
+          </ListItem>
+        </Text>
+        <Subtitle>
+          Post-Participation and minting Phase: July 8th, 2024 - July 7th, 2025
+        </Subtitle>
+        <Text>
+          <ListItem>
+            <strong>Mint sOPEN Tokens:</strong> After DCI participation
+            completion, you can will receive sOPEN vested over 12 months. You
+            can claim all vested tokens at any time, however each claim will
+            incur a gas fee. Any sOPEN you obtain can be converted into OPEN
+            1:1.
+          </ListItem>
+        </Text>
         <Title>About Decentralized Cloud Initiative 2024</Title>
         <Text>
           Openmesh launches its ambitious decentralized cloud initiative with
@@ -198,10 +254,8 @@ export default function IndexPage() {
         </Text>
         <Title>Mechanics</Title>
         <Image alt="Mechanics" src={Mechanics} />
-        <Title>Reserve</Title>
-        <Reserve />
-        <Title>Reserved</Title>
-        <Reserved />
+        <Title>Whitelist</Title>
+        <Tickets />
       </section>
     </>
   )
