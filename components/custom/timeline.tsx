@@ -2,7 +2,7 @@ export default function Timeline() {
   const items = [
     {
       date: "July 1st - 5th",
-      description: "Preparation Phase",
+      description: "Whitelisting Phase",
     },
     {
       date: "July 6th - 7th",

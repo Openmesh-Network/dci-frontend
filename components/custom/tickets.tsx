@@ -44,7 +44,7 @@ export interface Ticket {
 }
 
 export default function Tickets() {
-  const { isConnected } = useAccount()
+  const { address, isConnected } = useAccount()
   const { open } = useWeb3Modal()
   const { performTransaction, performingTransaction } = usePerformTransaction({
     chainId: defaultChain.id,
@@ -60,6 +60,12 @@ export default function Tickets() {
     },
     refetchInterval: 5 * 1000,
   })
+  const reservedTicket =
+    !reserved || !address
+      ? undefined
+      : reserved.some(
+          (ticket) => ticket.account.toLowerCase() === address.toLowerCase()
+        )
 
   const [disclaimerAccepted, setDisclaimerAccepted] = useState<boolean>(false)
   const [disclaimerOpen, setDisclaimerOpen] = useState<boolean>(false)
@@ -70,28 +76,28 @@ export default function Tickets() {
       ticketSize: 50,
       numberOfTickets: 10,
       sOPEN: "TBD",
-      bonus: "TBD",
+      bonus: "+12.6%",
     },
     {
       provider: "Hivelocity",
       ticketSize: 100,
       numberOfTickets: 12,
       sOPEN: "TBD",
-      bonus: "TBD",
+      bonus: "+21.75%",
     },
     {
       provider: "Hivelocity",
       ticketSize: 250,
       numberOfTickets: 10,
       sOPEN: "TBD",
-      bonus: "TBD",
+      bonus: "+24.75%",
     },
     {
       provider: "Hivelocity",
       ticketSize: 500,
       numberOfTickets: 4,
       sOPEN: "TBD",
-      bonus: "TBD",
+      bonus: "+31.54%",
     },
   ])
 
@@ -152,10 +158,7 @@ export default function Tickets() {
       header: "Number of Tickets",
       cell: ({ row }) => (
         <span className={row.original.className}>
-          {row.original.ticketsReserved !== undefined
-            ? row.original.numberOfTickets - row.original.ticketsReserved
-            : "?"}
-          /{row.original.numberOfTickets}
+          {row.original.numberOfTickets}
         </span>
       ),
     },
@@ -168,7 +171,9 @@ export default function Tickets() {
     {
       header: "Bonus",
       cell: ({ row }) => (
-        <span className={row.original.className}>{row.original.bonus}</span>
+        <span className={row.original.className ?? "text-green-700"}>
+          {row.original.bonus}
+        </span>
       ),
     },
     {
@@ -207,6 +212,7 @@ export default function Tickets() {
               disabled={
                 row.original.ticketsReserved === undefined ||
                 row.original.ticketsReserved >= row.original.numberOfTickets ||
+                reservedTicket ||
                 performingTransaction
               }
             >
@@ -240,6 +246,7 @@ export default function Tickets() {
         <DataTable columns={columns} data={tickets} />
         <ScrollBar orientation="horizontal" />
       </ScrollArea>
+      <span>You can only reserve one ticket per address.</span>
       <AlertDialog open={disclaimerOpen} onOpenChange={setDisclaimerOpen}>
         <AlertDialogTrigger />
         <AlertDialogContent>

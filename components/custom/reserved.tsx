@@ -1,12 +1,23 @@
 "use client"
 
-import type { Reserved, Waitlisted } from "@/dci-indexer/types/reserve"
+import { useEffect, useState } from "react"
+import Link from "next/link"
+import { type Reserved } from "@/dci-indexer/types/reserve"
 import { reviver } from "@/dci-indexer/utils/json"
 import { useQuery } from "@tanstack/react-query"
 import axios from "axios"
 import { useAccount } from "wagmi"
 
+import { Button } from "../ui/button"
+import {
+  Card,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "../ui/card"
 import { tokensForTicketSize } from "./reserve"
+import { defaultChain } from "./web3-provider"
 
 export default function Reserved() {
   const { address } = useAccount()
@@ -22,63 +33,51 @@ export default function Reserved() {
     refetchInterval: 5 * 1000,
   })
 
-  const { data: waitlisted } = useQuery({
-    queryKey: ["waitlisted"],
-    queryFn: () => {
-      return axios
-        .get("/indexer/waitlisted")
-        .then((res) => res.data)
-        .then((res) => JSON.parse(JSON.stringify(res), reviver) as Waitlisted[])
-    },
-    refetchInterval: 5 * 1000,
-  })
+  const [yourTickets, setYourTickets] = useState<Reserved[]>([])
+  useEffect(() => {
+    if (!reserved || !address) {
+      return
+    }
+
+    setYourTickets(
+      reserved.filter(
+        (ticket) => ticket.account.toLowerCase() === address.toLowerCase()
+      )
+    )
+  }, [reserved, address])
 
   if (!address) {
     return (
-      <span>You need to connect your wallet to see your reserved amount.</span>
+      <span>You need to connect your wallet to see your reserved tickets.</span>
     )
   }
 
-  const reservedAmountByAddress =
-    reserved?.reduce((prev, cur) => {
-      if (cur.account.toLowerCase() === address.toLowerCase()) {
-        return prev + cur.amount
-      }
-      return prev
-    }, BigInt(0)) ?? BigInt(0)
-  const reservedTokensByAddress =
-    reserved?.reduce((prev, cur) => {
-      if (cur.account.toLowerCase() === address.toLowerCase()) {
-        return prev + tokensForTicketSize(Number(cur.amount))
-      }
-      return prev
-    }, 0) ?? 0
-
-  const waitlistedAmountByAddress =
-    waitlisted?.reduce((prev, cur) => {
-      if (cur.account.toLowerCase() === address.toLowerCase()) {
-        return prev + cur.amount
-      }
-      return prev
-    }, BigInt(0)) ?? BigInt(0)
-  const waitlistedTokensByAddress =
-    waitlisted?.reduce((prev, cur) => {
-      if (cur.account.toLowerCase() === address.toLowerCase()) {
-        return prev + tokensForTicketSize(Number(cur.amount))
-      }
-      return prev
-    }, 0) ?? 0
+  if (!reserved) {
+    return <span>Loading...</span>
+  }
 
   return (
     <div className="flex flex-col gap-3">
-      <span>
-        Reserved: {reservedAmountByAddress.toString()} USD (
-        {reservedTokensByAddress} sOPEN)
-      </span>
-      <span>
-        Waitlisted: {waitlistedAmountByAddress.toString()} USD (
-        {waitlistedTokensByAddress} sOPEN)
-      </span>
+      {yourTickets.length === 0 ? (
+        <span>No reserved tickets found.</span>
+      ) : (
+        yourTickets.map((ticket) => (
+          <Card>
+            <CardHeader>
+              <CardTitle>Whitelist ticket</CardTitle>
+              <CardDescription>{ticket.amount.toString()} USD</CardDescription>
+            </CardHeader>
+            <CardFooter>
+              <Link
+                href={`${defaultChain.blockExplorers.default.url}/tx/${ticket.transactionHash}`}
+                target="_blank"
+              >
+                View on explorer
+              </Link>
+            </CardFooter>
+          </Card>
+        ))
+      )}
     </div>
   )
 }

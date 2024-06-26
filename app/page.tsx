@@ -16,6 +16,7 @@ import vultr from "@/public/vultr.svg"
 
 import { Link, ListItem, Subtitle, Text, Title } from "@/components/base"
 import Disclaimer from "@/components/custom/disclaimer"
+import Reserved from "@/components/custom/reserved"
 import Tickets from "@/components/custom/tickets"
 import Timeline from "@/components/custom/timeline"
 
@@ -42,7 +43,7 @@ export default function IndexPage() {
         </div>
         <Subtitle>Important dates</Subtitle>
         <Timeline />
-        <Subtitle>Preparation Phase: July 1st - 5th</Subtitle>
+        <Subtitle>1. Whitelisting Phase: July 1st - 5th</Subtitle>
         <Text>
           <ListItem>
             <strong>Visit the DCI Main Page:</strong> Go to
@@ -71,7 +72,7 @@ export default function IndexPage() {
             liability from your end.
           </ListItem>
         </Text>
-        <Subtitle>Payment and Confirmation Phase: July 6th - 7th</Subtitle>
+        <Subtitle>2. Payment and Confirmation Phase: July 6th - 7th</Subtitle>
         <Text>
           <ListItem>
             <strong>
@@ -88,15 +89,16 @@ export default function IndexPage() {
           </ListItem>
         </Text>
         <Subtitle>
-          Post-Participation and minting Phase: July 8th, 2024 - July 7th, 2025
+          3. Post-Participation and minting Phase: July 8th, 2024 - July 7th,
+          2025
         </Subtitle>
         <Text>
           <ListItem>
             <strong>Mint sOPEN Tokens:</strong> After DCI participation
-            completion, you can will receive sOPEN vested over 12 months. You
-            can claim all vested tokens at any time, however each claim will
-            incur a gas fee. Any sOPEN you obtain can be converted into OPEN
-            1:1.
+            completion, you will receive sOPEN vested over 12 months. You can
+            claim all vested tokens at any time, however each claim will incur a
+            gas fee. Any sOPEN you obtain can be converted into OPEN 1:1 after
+            TGE.
           </ListItem>
         </Text>
         <Title>About Decentralized Cloud Initiative 2024</Title>
@@ -142,56 +144,66 @@ export default function IndexPage() {
         </Text>
         <Subtitle>Disclaimer</Subtitle>
         <Disclaimer />
-        <Title>Basic steps</Title>
+        <Title>Steps to Participate in the DCI</Title>
         <Text>
-          <ListItem>
-            Select a ticket size and reserve the respective amount.
-          </ListItem>
-          <ListItem>
-            You must use the Ethereum network to reserve (which will incur a gas
-            fee) and can only send following ERC20 assets (USDT, USDC, DAI and
-            ETH) to the bare metal provider.
-          </ListItem>
-          <ListItem>You only can send the amount you have reserved.</ListItem>
-          <ListItem>
-            You will receive sOPEN tokens in the wallet you used to reserve.
-          </ListItem>
-          <ListItem>
-            Contact the appropriate bare metal provider based on your ticket to
-            complete your KYC. The bare metal provider will provide you with an
-            invoice, a wallet address and a point of contact to clarify any
-            questions you have.
-          </ListItem>
-          <ListItem>
-            Once you have completed the KYC, wait for 24-48 hours for this to be
-            shown on the website.
-          </ListItem>
-          <ListItem>
-            Connect your wallet to see if your KYC was successful. You can
-            connect your wallet and you will see if your KYC is successful.
-          </ListItem>
-          <ListItem>
-            Wait for the period where you can send your assets to the bare metal
-            provider. You will see a timer on the website.
-          </ListItem>
-          <ListItem>
-            When the timer is indicated for you to send assets, try sending a
-            smaller amount and confirm with the bare metal provider to ensure
-            everything is working fine.
-          </ListItem>
-          <ListItem>
-            Once the DCI participation is completed, you will be able to receive
-            sOPEN vested over 12 months. Any sOPEN you get you can swap in to
-            OPEN in a 1:1 ratio.
-          </ListItem>
+          <strong>1. Visit the DCI Main Page:</strong> Go to
+          dci.openmesh.network
+          <br />
+          <strong>
+            2. Select Ticket Size and Whitelist (July 1st -5th):
+          </strong>{" "}
+          Choose the available ticket size and sign the transaction to whitelist
+          yourself. You must use the Ethereum network for whitelisting.
+          <br />
+          <strong>3. Supported ERC20 Assets(July 1st -5th):</strong> Only the
+          following ERC20 assets are accepted: USDT, USDC, DAI, and ETH. Payment
+          is not made during this step. You can only participate with the amount
+          you have whitelisted. You will receive sOPEN tokens in the same wallet
+          used for whitelisting.
+          <br />
+          <strong>4. Account Activation and KYC (July 1st -5th):</strong> Within
+          24-48 hours after reserving your spot/whitelisting, you will be guided
+          to activate your account and complete your KYC with the bare metal
+          provider.
+          <br />
+          <strong>5. Sign Side Letter Agreement(July 1st -5th):</strong> You
+          will receive a side letter agreement to sign with the bare metal
+          provider, removing all liability from your end.
+          <br />
+          <strong>
+            6. Receive Invoice and Choose Payment Method(July 6th):
+          </strong>{" "}
+          After completing the above steps, you will receive an invoice from the
+          bare metal provider. Inform the Openmesh team of your preferred
+          payment method (bank transfer, crypto transfer, or card).
+          <br />
+          <strong>7. Initial Asset Transfer(July 7th):</strong> When prompted to
+          send assets, start by sending a smaller amount. Confirm with the bare
+          metal provider to ensure the transfer is working correctly.
+          <br />
+          <strong>8. Complete the Transaction(July 7th):</strong> Finalize your
+          transaction. Your transaction confirmation will be displayed on
+          dci.openmesh.network
+          <br />
+          <strong>
+            9. Wait for DCI Participation Completion(July 7th):
+          </strong>{" "}
+          Wait up to 24 hours for the completion of your DCI participation.
+          <br />
+          <strong>
+            10. Mint sOPEN Tokens(July 7th 2024 - July 7th 2025):
+          </strong>{" "}
+          After DCI participation completion, you will receive sOPEN vested over
+          12 months. You can claim all vested tokens at any time, however each
+          claim will incur a gas fee. Any sOPEN you obtain can be converted into
+          OPEN 1:1 after TGE.
         </Text>
         <Title>Main stakeholders</Title>
         <div className="flex w-full flex-wrap items-center pt-5">
-          <Stakeholder
-            logo={OpenmeshLogo}
-            description="Leading DePIN projects"
-          />
-          <Stakeholder logo={hivelocity} description="Leading DePIN projects" />
+          <Stakeholder logo={OpenmeshLogo} description="Openmesh" />
+          <Stakeholder logo={hivelocity} description="Hivelocity" />
+          <Stakeholder logo={vultr} description="Vultr" />
+          <Stakeholder logo={equinix} description="Equinix" />
         </div>
         <Title>New kind of global network</Title>
         <Text>
@@ -256,6 +268,8 @@ export default function IndexPage() {
         <Image alt="Mechanics" src={Mechanics} />
         <Title>Whitelist</Title>
         <Tickets />
+        <Title>Your tickets</Title>
+        <Reserved />
       </section>
     </>
   )
