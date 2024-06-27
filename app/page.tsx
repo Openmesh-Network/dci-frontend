@@ -4,6 +4,7 @@ import aiven from "@/public/aiven.svg"
 import chainlink from "@/public/chainlink.svg"
 import equinix from "@/public/equinix.svg"
 import fantom from "@/public/fantom.png"
+import HeaderBackground from "@/public/HeaderBackground.png"
 import hivelocityFull from "@/public/hivelocity-full.svg"
 import hivelocity from "@/public/hivelocity.svg"
 import OpenmeshLogo from "@/public/logo.svg"
@@ -23,7 +24,14 @@ import Timeline from "@/components/custom/timeline"
 export default function IndexPage() {
   return (
     <>
-      <div className="absolute inset-x-0 top-0 -z-50 h-[500px] bg-black"></div>
+      <div className="absolute inset-x-0 top-0 -z-50 h-[500px] bg-black flex place-content-center overflow-hidden">
+        <Image
+          className="object-none w-full"
+          alt="Header background"
+          src={HeaderBackground}
+          height={500}
+        />
+      </div>
       <section className="container grid items-center gap-6 py-10 pb-8">
         <div className="ml-12 flex w-full flex-col items-start gap-2">
           <div className="pt-6" />
