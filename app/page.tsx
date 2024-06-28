@@ -1,7 +1,9 @@
 import React from "react"
 import Image from "next/image"
 import aiven from "@/public/aiven.svg"
+import aragon from "@/public/aragon.png"
 import chainlink from "@/public/chainlink.svg"
+import digitalocean from "@/public/digitalocean.svg"
 import equinix from "@/public/equinix.svg"
 import fantom from "@/public/fantom.png"
 import HeaderBackground from "@/public/HeaderBackground.png"
@@ -9,10 +11,12 @@ import hivelocityFull from "@/public/hivelocity-full.svg"
 import hivelocity from "@/public/hivelocity.svg"
 import OpenmeshLogo from "@/public/logo.svg"
 import Mechanics from "@/public/mechanics.png"
+import mongodb from "@/public/mongodb.svg"
 import OpenmeshFull from "@/public/OpenmeshFull.png"
 import polygon from "@/public/polygon.png"
 import singularitynet from "@/public/singularitynet.svg"
 import snowflake from "@/public/snowflake.svg"
+import validationcloud from "@/public/validationcloud.png"
 import vultr from "@/public/vultr.svg"
 
 import { Link, ListItem, Subtitle, Text, Title } from "@/components/base"
@@ -238,12 +242,18 @@ export default function IndexPage() {
         <Title>Openmesh partners</Title>
         <div className="flex w-full flex-wrap items-center gap-x-10 gap-y-5 pt-5 md:gap-x-28">
           <Partner src={equinix} />
-          <Partner src={snowflake} />
-          <Partner src={polygon} />
-          <Partner src={vultr} />
           <Partner src={singularitynet} />
+          <Partner src={vultr} />
+          <Partner src={snowflake} />
           <Partner src={aiven} />
+          <Partner src={polygon} />
+          <Partner src={chainlink} />
+          <Partner src={aragon} />
+          <Partner src={mongodb} />
+          <Partner src={validationcloud} />
+          <Partner src={digitalocean} />
           <Partner src={hivelocityFull} />
+          <Partner src={fantom} />
         </div>
         <Title>Important links</Title>
         <Text>
