@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react"
 import Link from "next/link"
 import { DCIReserveContract } from "@/dci-indexer/contracts/DCIReserve"
-import type { Reserved, Waitlisted } from "@/dci-indexer/types/reserve"
+import type { Reserved } from "@/dci-indexer/types/reserve"
 import { reviver } from "@/dci-indexer/utils/json"
 import { useQuery, useQueryClient } from "@tanstack/react-query"
 import { ColumnDef } from "@tanstack/react-table"
@@ -75,28 +75,28 @@ export default function Tickets() {
       provider: "Hivelocity",
       ticketSize: 50,
       numberOfTickets: 10,
-      sOPEN: "TBD",
+      sOPEN: "358,974",
       bonus: "+12.6%",
     },
     {
       provider: "Hivelocity",
       ticketSize: 100,
       numberOfTickets: 12,
-      sOPEN: "TBD",
+      sOPEN: "666,667",
       bonus: "+21.75%",
     },
     {
       provider: "Hivelocity",
       ticketSize: 250,
       numberOfTickets: 10,
-      sOPEN: "TBD",
+      sOPEN: "1,589,744",
       bonus: "+24.75%",
     },
     {
       provider: "Hivelocity",
       ticketSize: 500,
       numberOfTickets: 4,
-      sOPEN: "TBD",
+      sOPEN: "3,128,204",
       bonus: "+31.54%",
     },
   ])
