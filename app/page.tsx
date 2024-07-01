@@ -283,7 +283,7 @@ export default function IndexPage() {
           </ListItem>
         </Text>
         <Title>Mechanics</Title>
-        <Image alt="Mechanics" src={Mechanics} />
+        <Image alt="Mechanics" src={Mechanics} className="md:max-w-[800px]" />
         <Title>Whitelist</Title>
         <Tickets />
         <Title>Your tickets</Title>
