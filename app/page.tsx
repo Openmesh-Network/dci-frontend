@@ -13,6 +13,7 @@ import OpenmeshLogo from "@/public/logo.svg"
 import Mechanics from "@/public/mechanics.png"
 import mongodb from "@/public/mongodb.svg"
 import OpenmeshFull from "@/public/OpenmeshFull.png"
+import partners from "@/public/partners.svg"
 import polygon from "@/public/polygon.png"
 import singularitynet from "@/public/singularitynet.svg"
 import snowflake from "@/public/snowflake.svg"
@@ -28,9 +29,9 @@ import Timeline from "@/components/custom/timeline"
 export default function IndexPage() {
   return (
     <>
-      <div className="absolute inset-x-0 top-0 -z-50 h-[500px] bg-black flex place-content-center overflow-hidden">
+      <div className="absolute inset-x-0 top-0 -z-50 flex h-[500px] place-content-center overflow-hidden bg-black">
         <Image
-          className="object-none w-full"
+          className="w-full object-none"
           alt="Header background"
           src={HeaderBackground}
           height={500}
@@ -240,7 +241,7 @@ export default function IndexPage() {
           />
         </div>
         <Title>Openmesh partners</Title>
-        <div className="flex w-full flex-wrap items-center gap-x-10 gap-y-5 pt-5 md:gap-x-28">
+        {/* <div className="flex w-full flex-wrap items-center gap-x-10 gap-y-5 pt-5 md:gap-x-28">
           <Partner src={equinix} />
           <Partner src={singularitynet} />
           <Partner src={vultr} />
@@ -254,7 +255,8 @@ export default function IndexPage() {
           <Partner src={digitalocean} />
           <Partner src={hivelocityFull} />
           <Partner src={fantom} />
-        </div>
+        </div> */}
+        <Image alt="Partners" src={partners} />
         <Title>Important links</Title>
         <Text>
           <ListItem>
@@ -316,7 +318,7 @@ function Achievement({
   description: string
 }) {
   return (
-    <div className="flex grow flex-col items-start basis-96">
+    <div className="flex grow basis-96 flex-col items-start">
       <span className="text-5xl font-semibold">{title}</span>
       <Text>{description}</Text>
     </div>

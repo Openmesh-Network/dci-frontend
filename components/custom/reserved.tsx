@@ -8,7 +8,6 @@ import { useQuery } from "@tanstack/react-query"
 import axios from "axios"
 import { useAccount } from "wagmi"
 
-import { Button } from "../ui/button"
 import {
   Card,
   CardDescription,
@@ -16,7 +15,6 @@ import {
   CardHeader,
   CardTitle,
 } from "../ui/card"
-import { tokensForTicketSize } from "./reserve"
 import { defaultChain } from "./web3-provider"
 
 export default function Reserved() {

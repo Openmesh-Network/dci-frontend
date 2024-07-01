@@ -16,9 +16,9 @@ export default function Timeline() {
 
   return (
     <div>
-      <ol className="items-center justify-center md:flex w-full">
+      <ol className="w-full items-center justify-center md:flex">
         {items.map((item, i) => (
-          <li key={i} className="relative mb-6 md:mb-0 grow">
+          <li key={i} className="relative mb-6 grow md:mb-0">
             <div className="flex items-center">
               <div className="z-10 flex size-6 shrink-0 items-center justify-center rounded-full bg-blue-100 ring-0 ring-white dark:bg-blue-900 dark:ring-gray-900 md:ring-8">
                 <svg
