@@ -36,7 +36,7 @@ export interface Ticket {
   ticketSize: number
   ticketsReserved?: number
   numberOfTickets: number
-  sOPEN: string
+  sOPEN: number
   bonus: string
   action?: any
   tx?: Hex
@@ -73,30 +73,30 @@ export default function Tickets() {
   const [rawTickets, setRawTickets] = useState<Ticket[]>([
     {
       provider: "Hivelocity",
-      ticketSize: 50,
+      ticketSize: 50000,
       numberOfTickets: 10,
-      sOPEN: "269,231",
-      bonus: "12.6%",
+      sOPEN: 269231,
+      bonus: "12.60%",
     },
     {
       provider: "Hivelocity",
-      ticketSize: 100,
+      ticketSize: 100000,
       numberOfTickets: 12,
-      sOPEN: "576,923",
+      sOPEN: 576923,
       bonus: "21.75%",
     },
     {
       provider: "Hivelocity",
-      ticketSize: 250,
+      ticketSize: 250000,
       numberOfTickets: 10,
-      sOPEN: "1,634,615",
+      sOPEN: 1634615,
       bonus: "24.75%",
     },
     {
       provider: "Hivelocity",
-      ticketSize: 500,
+      ticketSize: 500000,
       numberOfTickets: 4,
-      sOPEN: "3,461,538",
+      sOPEN: 3461538,
       bonus: "31.54%",
     },
   ])
@@ -110,33 +110,35 @@ export default function Tickets() {
       return {
         ...ticket,
         ticketsReserved: reserved.filter(
-          (r) => r.amount === BigInt(ticket.ticketSize * 1000)
+          (r) => r.amount === BigInt(ticket.ticketSize)
         ).length,
-        tx: reserved.findLast(
-          (r) => r.amount === BigInt(ticket.ticketSize * 1000)
-        )?.transactionHash,
+        tx: reserved.findLast((r) => r.amount === BigInt(ticket.ticketSize))
+          ?.transactionHash,
       }
     })
     setRawTickets(newTickets)
   }, [reserved])
 
   const tickets = rawTickets.concat([
-    {
-      provider: "Total",
-      ticketSize: "-" as any,
-      ticketsReserved: rawTickets.reduce(
-        (prev, cur) => prev + (cur.ticketsReserved ?? 0),
-        0
-      ),
-      numberOfTickets: rawTickets.reduce(
-        (prev, cur) => prev + cur.numberOfTickets,
-        0
-      ),
-      sOPEN: "-",
-      bonus: "-",
-      action: <span className="font-bold">-</span>,
-      className: "font-bold",
-    },
+    // {
+    //   provider: "Total",
+    //   ticketSize: "-" as any,
+    //   ticketsReserved: rawTickets.reduce(
+    //     (prev, cur) => prev + (cur.ticketsReserved ?? 0),
+    //     0
+    //   ),
+    //   numberOfTickets: rawTickets.reduce(
+    //     (prev, cur) => prev + cur.numberOfTickets,
+    //     0
+    //   ),
+    //   sOPEN: rawTickets.reduce(
+    //     (prev, cur) => prev + cur.sOPEN * cur.numberOfTickets,
+    //     0
+    //   ),
+    //   bonus: "-",
+    //   action: <span className="font-bold">-</span>,
+    //   className: "font-bold",
+    // },
   ])
 
   const columns: ColumnDef<Ticket>[] = [
@@ -147,25 +149,29 @@ export default function Tickets() {
       ),
     },
     {
-      header: "Ticket Size (k)",
+      header: "Ticket Size",
       cell: ({ row }) => (
         <span className={row.original.className}>
-          {row.original.ticketSize}
+          {row.original.ticketSize.toLocaleString("en-US")}
         </span>
       ),
     },
-    {
-      header: "Number of Tickets",
-      cell: ({ row }) => (
-        <span className={row.original.className}>
-          {row.original.numberOfTickets}
-        </span>
-      ),
-    },
+    // {
+    //   header: "Number of Tickets",
+    //   cell: ({ row }) => (
+    //     <span className={row.original.className}>
+    //       {row.original.numberOfTickets}
+    //     </span>
+    //   ),
+    // },
     {
       header: "sOPEN",
       cell: ({ row }) => (
-        <span className={row.original.className}>{row.original.sOPEN}</span>
+        <span className={row.original.className}>
+          {(row.original.sOPEN * row.original.numberOfTickets).toLocaleString(
+            "en-US"
+          )}
+        </span>
       ),
     },
     {
@@ -199,7 +205,7 @@ export default function Tickets() {
                       abi: DCIReserveContract.abi,
                       address: DCIReserveContract.address,
                       functionName: "reserve",
-                      args: [BigInt(row.original.ticketSize * 1000)],
+                      args: [BigInt(row.original.ticketSize)],
                     }
                   },
                   onConfirmed: (receipt) => {
@@ -223,7 +229,7 @@ export default function Tickets() {
       },
     },
     {
-      header: "tx",
+      header: "Tx",
       cell: ({ row }) => {
         const tx = row.original.tx
         if (!tx) {
