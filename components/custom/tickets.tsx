@@ -149,10 +149,10 @@ export default function Tickets() {
       ),
     },
     {
-      header: "Ticket Size",
+      header: "Ticket Size*",
       cell: ({ row }) => (
         <span className={row.original.className}>
-          {row.original.ticketSize.toLocaleString("en-US")}
+          ${row.original.ticketSize.toLocaleString("en-US")}
         </span>
       ),
     },
@@ -252,6 +252,7 @@ export default function Tickets() {
         <DataTable columns={columns} data={tickets} />
         <ScrollBar orientation="horizontal" />
       </ScrollArea>
+      <span>* USD, USDT, USDC, ETH, and bank transfer accepted.</span>
       <span>You can only reserve one ticket per address.</span>
       <AlertDialog open={disclaimerOpen} onOpenChange={setDisclaimerOpen}>
         <AlertDialogTrigger />
