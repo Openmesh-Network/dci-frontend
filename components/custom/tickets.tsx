@@ -165,12 +165,20 @@ export default function Tickets() {
     //   ),
     // },
     {
-      header: "sOPEN",
+      header: "Total sOPEN pool**",
       cell: ({ row }) => (
         <span className={row.original.className}>
           {(row.original.sOPEN * row.original.numberOfTickets).toLocaleString(
             "en-US"
           )}
+        </span>
+      ),
+    },
+    {
+      header: "sOPEN per ticket",
+      cell: ({ row }) => (
+        <span className={row.original.className}>
+          {row.original.sOPEN.toLocaleString("en-US")}
         </span>
       ),
     },
@@ -253,6 +261,7 @@ export default function Tickets() {
         <ScrollBar orientation="horizontal" />
       </ScrollArea>
       <span>* USD, USDT, USDC, ETH, and bank transfer accepted.</span>
+      <span>** The total pool of sOPEN allocated for every ticket size.</span>
       <span>You can only reserve one ticket per address.</span>
       <AlertDialog open={disclaimerOpen} onOpenChange={setDisclaimerOpen}>
         <AlertDialogTrigger />
