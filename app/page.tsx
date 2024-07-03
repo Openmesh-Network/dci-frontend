@@ -119,9 +119,9 @@ export default function IndexPage() {
           Openmesh launches its ambitious decentralized cloud initiative with
           the announcement of Xnode One in Paris on June 13th. Xnode One is a
           decentralized virtual machine capable of building and managing various
-          web2 and web3 applications. Currently, over 60% of all web3
+          Web2 and Web3 applications. Currently, over 60% of all Web3
           infrastructure is hosted by private cloud providers, which contradicts
-          the decentralized nature of the web3 industry. Openmesh aims to change
+          the decentralized nature of the Web3 industry. Openmesh aims to change
           that.
         </Text>
         <Text>
