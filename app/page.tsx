@@ -284,8 +284,8 @@ export default function IndexPage() {
             <Link href={"https://openmesh.network/"}>Roadmap</Link>
           </ListItem>
         </Text>
-        <Title>Mechanics</Title>
-        <Image alt="Mechanics" src={Mechanics} className="md:max-w-[800px]" />
+        {/* <Title>Mechanics</Title>
+        <Image alt="Mechanics" src={Mechanics} className="md:max-w-[800px]" /> */}
         <Title>Whitelist</Title>
         <Tickets />
         <Title>Your tickets</Title>
