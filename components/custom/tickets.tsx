@@ -73,6 +73,20 @@ export default function Tickets() {
   const [rawTickets, setRawTickets] = useState<Ticket[]>([
     {
       provider: "Hivelocity",
+      ticketSize: 10000,
+      numberOfTickets: 5,
+      sOPEN: 48387,
+      bonus: "0.00%",
+    },
+    {
+      provider: "Hivelocity",
+      ticketSize: 25000,
+      numberOfTickets: 5,
+      sOPEN: 120967,
+      bonus: "0.00%",
+    },
+    {
+      provider: "Hivelocity",
       ticketSize: 50000,
       numberOfTickets: 10,
       sOPEN: 281972,

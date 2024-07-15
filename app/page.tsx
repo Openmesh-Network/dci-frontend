@@ -56,7 +56,7 @@ export default function IndexPage() {
         </div>
         <Subtitle>Important dates</Subtitle>
         <Timeline />
-        <Subtitle>1. Whitelisting Phase: July 1st - 5th</Subtitle>
+        <Subtitle>1. Whitelisting Phase: July 1st - August 10th</Subtitle>
         <Text>
           <ListItem>
             <strong>Visit the DCI Main Page:</strong> Go to
@@ -85,18 +85,18 @@ export default function IndexPage() {
             liability from your end.
           </ListItem>
         </Text>
-        <Subtitle>2. Payment and Confirmation Phase: July 6th - 7th</Subtitle>
+        <Subtitle>
+          2. Payment and Confirmation Phase: July 6th - September 15th
+        </Subtitle>
         <Text>
           <ListItem>
-            <strong>
-              Receive Invoice and Choose Payment Method (July 6th):
-            </strong>{" "}
-            After completing the preparation steps, you will receive an invoice
-            from the bare metal provider. Inform the Openmesh team of your
-            preferred payment method (bank transfer, crypto transfer, or card).
+            <strong>Receive Invoice and Choose Payment Method:</strong> After
+            completing the preparation steps, you will receive an invoice from
+            the bare metal provider. Inform the Openmesh team of your preferred
+            payment method (bank transfer, crypto transfer, or card).
           </ListItem>
           <ListItem>
-            <strong>Complete the Transaction (July 7th):</strong> Finalize your
+            <strong>Complete the Transaction:</strong> Finalize your
             transaction. Your transaction confirmation will be displayed on
             dci.openmesh.network.
           </ListItem>
@@ -163,43 +163,55 @@ export default function IndexPage() {
           dci.openmesh.network
           <br />
           <strong>
-            2. Select Ticket Size and Whitelist (July 1st -5th):
+            2. Select Ticket Size and Whitelist (July 1st - August 10th):
           </strong>{" "}
           Choose the available ticket size and sign the transaction to whitelist
           yourself. You must use the Ethereum network for whitelisting.
           <br />
-          <strong>3. Supported ERC20 Assets(July 1st -5th):</strong> Only the
-          following ERC20 assets are accepted: USDT, USDC, DAI, and ETH. Payment
-          is not made during this step. You can only participate with the amount
-          you have whitelisted. You will receive sOPEN tokens in the same wallet
-          used for whitelisting.
+          <strong>
+            3. Supported ERC20 Assets(July 1st - August 10th):
+          </strong>{" "}
+          Only the following ERC20 assets are accepted: USDT, USDC, DAI, and
+          ETH. Payment is not made during this step. You can only participate
+          with the amount you have whitelisted. You will receive sOPEN tokens in
+          the same wallet used for whitelisting.
           <br />
-          <strong>4. Account Activation and KYC (July 1st -5th):</strong> Within
-          24-48 hours after reserving your spot/whitelisting, you will be guided
-          to activate your account and complete your KYC with the bare metal
-          provider.
+          <strong>
+            4. Account Activation and KYC (July 1st - August 10th):
+          </strong>{" "}
+          Within 24-48 hours after reserving your spot/whitelisting, you will be
+          guided to activate your account and complete your KYC with the bare
+          metal provider.
           <br />
-          <strong>5. Sign Side Letter Agreement(July 1st -5th):</strong> You
-          will receive a side letter agreement to sign with the bare metal
+          <strong>
+            5. Sign Side Letter Agreement(July 1st - August 10th):
+          </strong>{" "}
+          You will receive a side letter agreement to sign with the bare metal
           provider, removing all liability from your end.
           <br />
           <strong>
-            6. Receive Invoice and Choose Payment Method(July 6th):
+            6. Receive Invoice and Choose Payment Method(July 6th - September
+            15th):
           </strong>{" "}
           After completing the above steps, you will receive an invoice from the
           bare metal provider. Inform the Openmesh team of your preferred
           payment method (bank transfer, crypto transfer, or card).
           <br />
-          <strong>7. Initial Asset Transfer(July 7th):</strong> When prompted to
-          send assets, start by sending a smaller amount. Confirm with the bare
-          metal provider to ensure the transfer is working correctly.
-          <br />
-          <strong>8. Complete the Transaction(July 7th):</strong> Finalize your
-          transaction. Your transaction confirmation will be displayed on
-          dci.openmesh.network
+          <strong>
+            7. Initial Asset Transfer(July 6th - September 15th):
+          </strong>{" "}
+          When prompted to send assets, start by sending a smaller amount.
+          Confirm with the bare metal provider to ensure the transfer is working
+          correctly.
           <br />
           <strong>
-            9. Wait for DCI Participation Completion(July 7th):
+            8. Complete the Transaction(July 6th - September 15th):
+          </strong>{" "}
+          Finalize your transaction. Your transaction confirmation will be
+          displayed on dci.openmesh.network
+          <br />
+          <strong>
+            9. Wait for DCI Participation Completion(July 6th - September 15th):
           </strong>{" "}
           Wait up to 24 hours for the completion of your DCI participation.
           <br />
