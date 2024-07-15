@@ -82,8 +82,8 @@ export default function Tickets() {
       provider: "Hivelocity",
       ticketSize: 25000,
       numberOfTickets: 5,
-      sOPEN: 120967,
-      bonus: "0.00%",
+      sOPEN: 130500,
+      bonus: "6.00%",
     },
     {
       provider: "Hivelocity",
