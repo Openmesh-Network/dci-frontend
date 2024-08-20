@@ -22,6 +22,7 @@ import vultr from "@/public/vultr.svg"
 
 import { Link, ListItem, Subtitle, Text, Title } from "@/components/base"
 import Disclaimer from "@/components/custom/disclaimer"
+import Metadata from "@/components/custom/metadata"
 import Reserved from "@/components/custom/reserved"
 import Tickets from "@/components/custom/tickets"
 import Timeline from "@/components/custom/timeline"
@@ -302,6 +303,8 @@ export default function IndexPage() {
         <Tickets />
         <Title>Your tickets</Title>
         <Reserved />
+        <Title>Contact Information</Title>
+        <Metadata />
       </section>
     </>
   )
