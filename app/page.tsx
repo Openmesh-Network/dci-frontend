@@ -57,7 +57,9 @@ export default function IndexPage() {
         </div>
         <Subtitle>Important dates</Subtitle>
         <Timeline />
-        <Subtitle>1. Whitelisting Phase: July 1st - August 10th</Subtitle>
+        <Subtitle>
+          1. Whitelisting Phase: September 20th - September 30th
+        </Subtitle>
         <Text>
           <ListItem>
             <strong>Visit the DCI Main Page:</strong> Go to
@@ -87,7 +89,7 @@ export default function IndexPage() {
           </ListItem>
         </Text>
         <Subtitle>
-          2. Payment and Confirmation Phase: July 6th - September 15th
+          2. Payment and Confirmation Phase: September 20th - September 30th
         </Subtitle>
         <Text>
           <ListItem>
@@ -103,8 +105,8 @@ export default function IndexPage() {
           </ListItem>
         </Text>
         <Subtitle>
-          3. Post-Participation and minting Phase: July 8th, 2024 - July 7th,
-          2025
+          3. Post-Participation and minting Phase: September 30th, 2024 - July
+          7th, 2025
         </Subtitle>
         <Text>
           <ListItem>
@@ -164,13 +166,14 @@ export default function IndexPage() {
           dci.openmesh.network
           <br />
           <strong>
-            2. Select Ticket Size and Whitelist (July 1st - August 10th):
+            2. Select Ticket Size and Whitelist (September 20th - September
+            30th):
           </strong>{" "}
           Choose the available ticket size and sign the transaction to whitelist
           yourself. You must use the Ethereum network for whitelisting.
           <br />
           <strong>
-            3. Supported ERC20 Assets(July 1st - August 10th):
+            3. Supported ERC20 Assets(September 20th - September 30th):
           </strong>{" "}
           Only the following ERC20 assets are accepted: USDT, USDC, DAI, and
           ETH. Payment is not made during this step. You can only participate
@@ -178,41 +181,42 @@ export default function IndexPage() {
           the same wallet used for whitelisting.
           <br />
           <strong>
-            4. Account Activation and KYC (July 1st - August 10th):
+            4. Account Activation and KYC (September 20th - September 30th):
           </strong>{" "}
           Within 24-48 hours after reserving your spot/whitelisting, you will be
           guided to activate your account and complete your KYC with the bare
           metal provider.
           <br />
           <strong>
-            5. Sign Side Letter Agreement(July 1st - August 10th):
+            5. Sign Side Letter Agreement(September 20th - September 30th):
           </strong>{" "}
           You will receive a side letter agreement to sign with the bare metal
           provider, removing all liability from your end.
           <br />
           <strong>
-            6. Receive Invoice and Choose Payment Method(July 6th - September
-            15th):
+            6. Receive Invoice and Choose Payment Method(September 20th -
+            September 30th):
           </strong>{" "}
           After completing the above steps, you will receive an invoice from the
           bare metal provider. Inform the Openmesh team of your preferred
           payment method (bank transfer, crypto transfer, or card).
           <br />
           <strong>
-            7. Initial Asset Transfer(July 6th - September 15th):
+            7. Initial Asset Transfer(September 20th - September 30th):
           </strong>{" "}
           When prompted to send assets, start by sending a smaller amount.
           Confirm with the bare metal provider to ensure the transfer is working
           correctly.
           <br />
           <strong>
-            8. Complete the Transaction(July 6th - September 15th):
+            8. Complete the Transaction(September 20th - September 30th):
           </strong>{" "}
           Finalize your transaction. Your transaction confirmation will be
           displayed on dci.openmesh.network
           <br />
           <strong>
-            9. Wait for DCI Participation Completion(July 6th - September 15th):
+            9. Wait for DCI Participation Completion(September 20th - September
+            15th):
           </strong>{" "}
           Wait up to 24 hours for the completion of your DCI participation.
           <br />
