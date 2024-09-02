@@ -105,8 +105,8 @@ export default function IndexPage() {
           </ListItem>
         </Text>
         <Subtitle>
-          3. Post-Participation and minting Phase: September 30th, 2024 - July
-          7th, 2025
+          3. Post-Participation and minting Phase: September 30th, 2024 -
+          September 30th, 2025
         </Subtitle>
         <Text>
           <ListItem>
@@ -216,12 +216,12 @@ export default function IndexPage() {
           <br />
           <strong>
             9. Wait for DCI Participation Completion(September 20th - September
-            15th):
+            30th):
           </strong>{" "}
           Wait up to 24 hours for the completion of your DCI participation.
           <br />
           <strong>
-            10. Mint sOPEN Tokens(July 7th 2024 - July 7th 2025):
+            10. Mint sOPEN Tokens(September 30th 2024 - September 30th 2025):
           </strong>{" "}
           After DCI participation completion, you will receive sOPEN vested over
           12 months. You can claim all vested tokens at any time, however each
