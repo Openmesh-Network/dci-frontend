@@ -1,15 +1,15 @@
 export default function Timeline() {
   const items = [
     {
-      date: "September 20th - September 30th",
+      date: "October 15th - October 30th",
       description: "Whitelisting Phase",
     },
     {
-      date: "September 20th - September 30th",
+      date: "October 15th - October 30th",
       description: "Payment and Confirmation Phase",
     },
     {
-      date: "September 30th, 2024 - September 30th, 2025",
+      date: "October 30th, 2024 - October 30th, 2025",
       description: "Post-Participation and minting Phase",
     },
   ]
