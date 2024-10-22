@@ -57,7 +57,7 @@ export default function IndexPage() {
         </div>
         <Subtitle>Important dates</Subtitle>
         <Timeline />
-        <Subtitle>1. Whitelisting Phase: October 15th - October 30th</Subtitle>
+        <Subtitle>1. Whitelisting Phase: October 31st - November 15th</Subtitle>
         <Text>
           <ListItem>
             <strong>Visit the DCI Main Page:</strong> Go to
@@ -87,7 +87,7 @@ export default function IndexPage() {
           </ListItem>
         </Text>
         <Subtitle>
-          2. Payment and Confirmation Phase: October 15th - October 30th
+          2. Payment and Confirmation Phase: October 31st - November 15th
         </Subtitle>
         <Text>
           <ListItem>
@@ -103,8 +103,8 @@ export default function IndexPage() {
           </ListItem>
         </Text>
         <Subtitle>
-          3. Post-Participation and minting Phase: October 30th, 2024 - October
-          30th, 2025
+          3. Post-Participation and minting Phase: November 15th, 2024 -
+          November 15th, 2025
         </Subtitle>
         <Text>
           <ListItem>
@@ -164,13 +164,13 @@ export default function IndexPage() {
           dci.openmesh.network
           <br />
           <strong>
-            2. Select Ticket Size and Whitelist (October 15th - October 30th):
+            2. Select Ticket Size and Whitelist (October 31st - November 15th):
           </strong>{" "}
           Choose the available ticket size and sign the transaction to whitelist
           yourself. You must use the Ethereum network for whitelisting.
           <br />
           <strong>
-            3. Supported ERC20 Assets(October 15th - October 30th):
+            3. Supported ERC20 Assets(October 31st - November 15th):
           </strong>{" "}
           Only the following ERC20 assets are accepted: USDT, USDC, DAI, and
           ETH. Payment is not made during this step. You can only participate
@@ -178,47 +178,47 @@ export default function IndexPage() {
           the same wallet used for whitelisting.
           <br />
           <strong>
-            4. Account Activation and KYC (October 15th - October 30th):
+            4. Account Activation and KYC (October 31st - November 15th):
           </strong>{" "}
           Within 24-48 hours after reserving your spot/whitelisting, you will be
           guided to activate your account and complete your KYC with the bare
           metal provider.
           <br />
           <strong>
-            5. Sign Side Letter Agreement(October 15th - October 30th):
+            5. Sign Side Letter Agreement(October 31st - November 15th):
           </strong>{" "}
           You will receive a side letter agreement to sign with the bare metal
           provider, removing all liability from your end.
           <br />
           <strong>
-            6. Receive Invoice and Choose Payment Method(October 15th - October
-            30th):
+            6. Receive Invoice and Choose Payment Method(October 31st - November
+            15th):
           </strong>{" "}
           After completing the above steps, you will receive an invoice from the
           bare metal provider. Inform the Openmesh team of your preferred
           payment method (bank transfer, crypto transfer, or card).
           <br />
           <strong>
-            7. Initial Asset Transfer(October 15th - October 30th):
+            7. Initial Asset Transfer(October 31st - November 15th):
           </strong>{" "}
           When prompted to send assets, start by sending a smaller amount.
           Confirm with the bare metal provider to ensure the transfer is working
           correctly.
           <br />
           <strong>
-            8. Complete the Transaction(October 15th - October 30th):
+            8. Complete the Transaction(October 31st - November 15th):
           </strong>{" "}
           Finalize your transaction. Your transaction confirmation will be
           displayed on dci.openmesh.network
           <br />
           <strong>
-            9. Wait for DCI Participation Completion(October 15th - October
-            30th):
+            9. Wait for DCI Participation Completion(October 31st - November
+            15th):
           </strong>{" "}
           Wait up to 24 hours for the completion of your DCI participation.
           <br />
           <strong>
-            10. Mint sOPEN Tokens(October 30th 2024 - October 30th 2025):
+            10. Mint sOPEN Tokens(November 15th 2024 - November 15th 2025):
           </strong>{" "}
           After DCI participation completion, you will receive sOPEN vested over
           12 months. You can claim all vested tokens at any time, however each
