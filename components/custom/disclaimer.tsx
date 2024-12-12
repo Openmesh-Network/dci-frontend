@@ -8,7 +8,7 @@ export default function Disclaimer() {
       <Text>
         This proposal is provided for informational purposes only and does not
         constitute an offer or solicitation for investment or financial advice.
-        Participation in the Decentralized Cloud Initiative (DCI) 2024 as a
+        Participation in the Decentralized Cloud Initiative (DCI) 2025 as a
         sponsor involves significant risks. Sponsors should perform their own
         due diligence and fully understand the associated risks before
         committing any resources. This initiative is strictly a sponsorship and
@@ -37,7 +37,7 @@ export default function Disclaimer() {
         <strong>Nature of Participation:</strong> This initiative is a
         sponsorship to support the development of decentralized cloud
         infrastructure and the Web3 ecosystem. It is not an investment. By
-        sponsoring the DCI 2024, you are contributing to a community-driven
+        sponsoring the DCI 2025, you are contributing to a community-driven
         effort to democratize access to decentralized cloud resources and
         support innovation in the Web3 space.
       </Text>

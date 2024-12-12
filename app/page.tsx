@@ -51,15 +51,13 @@ export default function IndexPage() {
           <div className="pt-6" />
           <h1 className="whitespace-break-spaces text-4xl text-secondary md:text-6xl">
             Decentralized Cloud <br className="hidden sm:inline" />
-            Initiative (DCI) 2024
+            Initiative (DCI) 2025
           </h1>
           <div className="pt-36" />
         </div>
         <Subtitle>Important dates</Subtitle>
         <Timeline />
-        <Subtitle>
-          1. Whitelisting Phase: November 15th - November 30th
-        </Subtitle>
+        <Subtitle>1. Whitelisting Phase: January 1st - January 31st</Subtitle>
         <Text>
           <ListItem>
             <strong>Visit the DCI Main Page:</strong> Go to
@@ -89,7 +87,7 @@ export default function IndexPage() {
           </ListItem>
         </Text>
         <Subtitle>
-          2. Payment and Confirmation Phase: November 15th - November 30th
+          2. Payment and Confirmation Phase: January 1st - January 31st
         </Subtitle>
         <Text>
           <ListItem>
@@ -105,8 +103,8 @@ export default function IndexPage() {
           </ListItem>
         </Text>
         <Subtitle>
-          3. Post-Participation and minting Phase: November 30th, 2024 -
-          November 30th, 2025
+          3. Post-Participation and minting Phase: January 31st, 2025 - January
+          31st, 2026
         </Subtitle>
         <Text>
           <ListItem>
@@ -117,7 +115,7 @@ export default function IndexPage() {
             TGE.
           </ListItem>
         </Text>
-        <Title>About Decentralized Cloud Initiative 2024</Title>
+        <Title>About Decentralized Cloud Initiative 2025</Title>
         <Text>
           Openmesh launches its ambitious decentralized cloud initiative with
           the announcement of Xnode One in Paris on June 13th. Xnode One is a
@@ -132,13 +130,13 @@ export default function IndexPage() {
           selected Decentralized Cloud Initiative supporters to raise $6.4
           million. These funds will pay for bare metal server bills, generating
           an equivalent of US$100 million in public cloud resources to support
-          and accelerate the Web3 ecosystem in 2024. Approximately 33,000 Xnodes
+          and accelerate the Web3 ecosystem in 2025. Approximately 33,000 Xnodes
           will be distributed to the community for free, with major
           distributions beginning at Proof of Talk and continuing through
           Istanbul Blockchain Week, Eth Toronto, and Token 2049.
         </Text>
         <Text>
-          The Decentralized Cloud Initiative 2024 aims to transform data and IT
+          The Decentralized Cloud Initiative 2025 aims to transform data and IT
           infrastructure by providing $100 million worth of public cloud
           equivalence over the next 12 months. This initiative supports both
           Web3 and Web2 by offering Xnodes deployed on high-performance
@@ -153,7 +151,7 @@ export default function IndexPage() {
           Our main goal is to accelerate the Web3 space by democratizing access
           to decentralized cloud infrastructure, reducing costs, and enabling
           secure, scalable, and efficient data services for developers and
-          organizations worldwide. The Decentralized Cloud Initiative 2024 aims
+          organizations worldwide. The Decentralized Cloud Initiative 2025 aims
           to empower the Web3 community with the tools and resources needed to
           drive innovation and foster growth in a decentralized digital
           ecosystem.
@@ -166,13 +164,13 @@ export default function IndexPage() {
           dci.openmesh.network
           <br />
           <strong>
-            2. Select Ticket Size and Whitelist (November 15th - November 30th):
+            2. Select Ticket Size and Whitelist (January 1st - January 31st):
           </strong>{" "}
           Choose the available ticket size and sign the transaction to whitelist
           yourself. You must use the Ethereum network for whitelisting.
           <br />
           <strong>
-            3. Supported ERC20 Assets(November 15th - November 30th):
+            3. Supported ERC20 Assets(January 1st - January 31st):
           </strong>{" "}
           Only the following ERC20 assets are accepted: USDT, USDC, DAI, and
           ETH. Payment is not made during this step. You can only participate
@@ -180,47 +178,47 @@ export default function IndexPage() {
           the same wallet used for whitelisting.
           <br />
           <strong>
-            4. Account Activation and KYC (November 15th - November 30th):
+            4. Account Activation and KYC (January 1st - January 31st):
           </strong>{" "}
           Within 24-48 hours after reserving your spot/whitelisting, you will be
           guided to activate your account and complete your KYC with the bare
           metal provider.
           <br />
           <strong>
-            5. Sign Side Letter Agreement(November 15th - November 30th):
+            5. Sign Side Letter Agreement(January 1st - January 31st):
           </strong>{" "}
           You will receive a side letter agreement to sign with the bare metal
           provider, removing all liability from your end.
           <br />
           <strong>
-            6. Receive Invoice and Choose Payment Method(November 15th -
-            November 30th):
+            6. Receive Invoice and Choose Payment Method(January 1st - January
+            31st):
           </strong>{" "}
           After completing the above steps, you will receive an invoice from the
           bare metal provider. Inform the Openmesh team of your preferred
           payment method (bank transfer, crypto transfer, or card).
           <br />
           <strong>
-            7. Initial Asset Transfer(November 15th - November 30th):
+            7. Initial Asset Transfer(January 1st - January 31st):
           </strong>{" "}
           When prompted to send assets, start by sending a smaller amount.
           Confirm with the bare metal provider to ensure the transfer is working
           correctly.
           <br />
           <strong>
-            8. Complete the Transaction(November 15th - November 30th):
+            8. Complete the Transaction(January 1st - January 31st):
           </strong>{" "}
           Finalize your transaction. Your transaction confirmation will be
           displayed on dci.openmesh.network
           <br />
           <strong>
-            9. Wait for DCI Participation Completion(November 15th - November
-            30th):
+            9. Wait for DCI Participation Completion(January 1st - January
+            31st):
           </strong>{" "}
           Wait up to 24 hours for the completion of your DCI participation.
           <br />
           <strong>
-            10. Mint sOPEN Tokens(November 30th 2024 - November 30th 2025):
+            10. Mint sOPEN Tokens(January 31st 2025 - January 31st 2026):
           </strong>{" "}
           After DCI participation completion, you will receive sOPEN vested over
           12 months. You can claim all vested tokens at any time, however each

@@ -2,7 +2,7 @@
 
 https://dci.openmesh.network/
 
-Website interface to participate in the Decentralized Cloud Initiative (DCI) 2024.
+Website interface to participate in the Decentralized Cloud Initiative (DCI) 2025.
 
 ## Commands
 
